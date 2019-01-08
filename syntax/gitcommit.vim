@@ -61,6 +61,14 @@ syn match   gitcommitWarning		"\%^[^#].*: needs merge$" nextgroup=gitcommitWarni
 syn match   gitcommitWarning		"^[^#].*: needs merge$" nextgroup=gitcommitWarning skipnl contained
 syn match   gitcommitWarning		"^\%(no changes added to commit\|nothing \%(added \)\=to commit\)\>.*\%$"
 
+syn match   gitcommitQuestion	"What part of the code is affected?"	contained containedin=gitcommitComment
+syn match   gitcommitQuestion	"There must be an underlying problem that motivated you to do this"	contained containedin=gitcommitComment
+syn match   gitcommitQuestion	"work."	contained containedin=gitcommitComment
+syn match   gitcommitQuestion	"Summarize the relevant points of the discussion. \[ID\/SHA-1\]"	contained containedin=gitcommitComment
+syn match   gitcommitBulletPoint	"* What is wrong with the current code without the change?"	contained containedin=gitcommitComment
+syn match   gitcommitBulletPoint	"* Why the result with the change is better?"	contained containedin=gitcommitComment
+syn match   gitcommitBulletPoint	"* Has future scope for improvements, or any known limitations?"	contained containedin=gitcommitComment
+
 hi def link gitcommitSummary		Keyword
 hi def link gitcommitComment		Comment
 hi def link gitcommitUntracked		gitcommitComment
@@ -87,5 +95,7 @@ hi def link gitcommitUnmergedArrow	gitcommitArrow
 hi def link gitcommitArrow		gitcommitComment
 "hi def link gitcommitOverflow		Error
 hi def link gitcommitBlank		Error
+hi def link gitcommitQuestion		Comment
+hi def link gitcommitBulletPoint		Comment
 
 let b:current_syntax = "gitcommit"
